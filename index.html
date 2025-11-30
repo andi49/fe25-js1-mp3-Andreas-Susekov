@@ -1,13 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Science+Gothic:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Google fonts ends -->
+
+    <link rel="stylesheet" href="style.css" />
+    <title>QUIZ GAME</title>
+  </head>
+  <body>
+    <section class="boxGame">
+      <div class="info">
+        <h1>Welcome to Quiz Game</h1>
+        <p>
+          Decide how many questions you want to answer, choose three categories
+          and set the difficulty level easy, medium or hard. When you're ready,
+          just start playing!
+        </p>
+      </div>
+      <div class="inputSec">
+        <input type="text" placeholder="Name" />
+        <input type="number" placeholder="number of questions" min="0" />
+      
+            
+          <select id="category" name="category" class="inputSec">
+            <option value="">Select question category</option>
+            <option value="science">Vetenskap</option>
+            <option value="history">Historia</option>
+            <option value="sports">Sport</option>
+            <option value="art">Konst</option>
+          </select>
+
+           <select id="category" name="category" class="inputSec">
+            <option value="">Select difficulty</option>
+            <option value="science">Easy</option>
+            <option value="history">medium</option>
+            <option value="sports">hard</option>
+          </select>
     
-</body>
-<script src="main.js"></script>
+      
+      </div>
+    </section>
+  </body>
+  <script src="main.js"></script>
 </html>
