@@ -1,6 +1,6 @@
 const fetchAPI = async () => {
     try { 
-const URL = `https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple`
+const URL = `https://opentdb.com/api.php?${amount}=10&category=9&difficulty=${difficultyGame}&type=multiple`
 const response = await fetch(URL)
 const data = await response.json()
 
@@ -12,6 +12,6 @@ return data
 }
 
 const getName = document.querySelector('#name')
-const getNumber = document.querySelector('#number')
-const getCategory = document.querySelector('#category')
-const getDifficulty = document.querySelector('#difficulty')
+const amount = document.querySelector('#number')
+const category = document.querySelector('#category')
+const difficultyGame = document.querySelector('#difficulty')
