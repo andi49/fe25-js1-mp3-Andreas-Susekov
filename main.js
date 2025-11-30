@@ -10,3 +10,8 @@ return data
   }
 
 }
+
+const getName = document.querySelector('#name')
+const getNumber = document.querySelector('#number')
+const getCategory = document.querySelector('#category')
+const getDifficulty = document.querySelector('#difficulty')
