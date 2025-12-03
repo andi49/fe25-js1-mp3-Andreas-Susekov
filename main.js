@@ -1,33 +1,64 @@
-const fetchAPI = async () => {
-    try { 
-// const URL = `https://opentdb.com/api.php?${amount}=10&category=9&difficulty=${difficultyGame}&type=multiple`
-const URL = `https://opentdb.com/api_category.php`
-const response = await fetch(URL)
-const data = await response.json()
+import { fetchAPI } from "./js/api.js";
 
-return data.trivia_categories
-} catch (error) {
-    console.log(error);
-  }
-
-}
-function displayCotergi (arr) {
 const getCaterogy = document.querySelector('#category')
+const getdifficulty = document.querySelector('#difficulty')
+const getNumberEl = document.querySelector('#number')
 
-  for (const category of arr) {
-    const option = document.createElement("option");
-    option.innerText = category;
+getNumberEl.addEventListener('input', () => {
+  const value = getNumberEl.value
+
+  console.log(value)
+})  
+
+
+
+function displayCotergi (cat) {
+
+ cat.forEach(category => {
+  const option = document.createElement("option");
+
     console.log(category);
 
-   option.innerText = category.name    // <-- Correct text
-    option.value = category.id          // <-- Correct value
+    option.innerText = category.name    
+    option.value = category.id         
 
     getCaterogy.append(option);
-  }
-
+ });
 }
-fetchAPI().then(displayCotergi)
 
+getCaterogy.addEventListener('change', (event) => {
+  const selectedValue = event.target.value
+  console.log('You selected', selectedValue)
+})
+
+//  ---------------- ---------------- ---------------- ---------------- ---------------- ---------------- ----------------
+
+const difficultyChose = [
+  {id: 'easy', name: 'Easy' },
+    {id: 'normal', name: 'Normal' },
+      {id: 'hard', name: 'Hard' }
+]
+
+
+function displayDifficulty (def) {
+
+def.forEach(diff => {
+  const optionTwo = document.createElement("option");
+  optionTwo.innerText = diff.name;
+  optionTwo.value = diff.id;
+  getdifficulty.append(optionTwo);
+});
+}
+
+getdifficulty.addEventListener('change', (event) => {
+  const selectedValue = event.target.value
+  console.log('You selected', selectedValue)
+})
+
+
+
+fetchAPI().then(displayCotergi)
+displayDifficulty(difficultyChose)
 
 
 
