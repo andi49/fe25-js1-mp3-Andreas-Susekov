@@ -1,13 +1,13 @@
-import { fetchAPI } from "./js/api.js";
+import { fetchMyApi, fetchCatergoris } from "./js/api.js";
 
 const getCaterogy = document.querySelector('#category')
 const getdifficulty = document.querySelector('#difficulty')
 const getNumberEl = document.querySelector('#number')
 
-getNumberEl.addEventListener('input', () => {
-  const value = getNumberEl.value
 
-  console.log(value)
+
+getNumberEl.addEventListener('input', () => {
+  const num = getNumberEl.value
 })  
 
 
@@ -17,19 +17,12 @@ function displayCotergi (cat) {
  cat.forEach(category => {
   const option = document.createElement("option");
 
-    console.log(category);
-
     option.innerText = category.name    
     option.value = category.id         
 
     getCaterogy.append(option);
  });
 }
-
-getCaterogy.addEventListener('change', (event) => {
-  const selectedValue = event.target.value
-  console.log('You selected', selectedValue)
-})
 
 //  ---------------- ---------------- ---------------- ---------------- ---------------- ---------------- ----------------
 
@@ -42,26 +35,33 @@ const difficultyChose = [
 
 function displayDifficulty (def) {
 
-def.forEach(diff => {
+def.forEach(difficultyValue => {
   const optionTwo = document.createElement("option");
-  optionTwo.innerText = diff.name;
-  optionTwo.value = diff.id;
+  optionTwo.innerText = difficultyValue.name;
+  optionTwo.value = difficultyValue.id;
   getdifficulty.append(optionTwo);
 });
 }
 
 getdifficulty.addEventListener('change', (event) => {
   const selectedValue = event.target.value
-  console.log('You selected', selectedValue)
+  // console.log('You selected', selectedValue)
 })
 
-
-
-fetchAPI().then(displayCotergi)
+fetchCatergoris().then(displayCotergi)
 displayDifficulty(difficultyChose)
 
 
+document.querySelector("form").addEventListener("submit",  async (event) => {
+  event.preventDefault();
+ const number = document.querySelector('#number').value
+ const category = document.querySelector('#category').value
+ const difficulty = document.querySelector('#difficulty').value
 
-const getName = document.querySelector('#name')
-const amount = document.querySelector('#number')
+   console.log({ number, category, difficulty });
+ const callAPI = await fetchMyApi(number, category, difficulty)
+ 
+console.log(callAPI)
+})
+
 

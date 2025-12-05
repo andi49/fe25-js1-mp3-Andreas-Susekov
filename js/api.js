@@ -1,15 +1,30 @@
-const fetchAPI = async (num,numCatergory,difficultyGame) => {
+const fetchMyApi = async (num, numCatergory, difficultyGame) => {
     try { 
- const URL_FAKE = `https://opentdb.com/api.php?$amount=${num}&category=${numCatergory}&difficulty=${difficultyGame}&type=multiple`
-const URL = `https://opentdb.com/api_category.php`
-const response = await fetch(URL)
-const data = await response.json()
+const URL = `https://opentdb.com/api.php?amount=${num}&category=${numCatergory}&difficulty=${difficultyGame}&type=multiple`
+  const response = await fetch(URL)
+  const data = await response.json()
+ console.log("Fetching URL:", URL);
+  return data.results
 
-return data.trivia_categories
 } catch (error) {
     console.log(error);
   }
 
 }
 
-export {fetchAPI}
+
+const fetchCatergoris = async () => {
+  try {
+       const URL_CATEGORY = `https://opentdb.com/api_category.php`
+       const responseCaterory = await fetch(URL_CATEGORY)
+       const dataCaterory = await responseCaterory.json()
+
+       return dataCaterory.trivia_categories
+
+  } catch (error){
+     console.log(error);
+  }
+}
+
+
+export {fetchMyApi, fetchCatergoris}
