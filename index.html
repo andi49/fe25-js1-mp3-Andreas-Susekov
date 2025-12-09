@@ -17,7 +17,9 @@
   </head>
   <body>
     <section class="boxGame">
-      <div class="info">
+      
+      <form>
+        <div class="info">
         <h1>Welcome to Quiz Game</h1>
         <p>
           Decide how many questions you want to answer, choose three categories
@@ -25,7 +27,6 @@
           just start playing!
         </p>
       </div>
-      <form>
       <div class="inputSec">
         <!-- <input type="text" placeholder="Name" id="name"/> -->
         <input type="number" placeholder="number of questions" min="0" id="number" />
@@ -43,6 +44,13 @@
       
       </div>
       </form>
+       
+      <div class="center" id="quizWindow">
+         <h1 id="question"></h1>
+        <!-- <p id="answers"></p> -->
+        <div id="answerButtons"></div>
+      </form>
+
     </section>
   </body>
   <script src="main.js" type="module"></script>
